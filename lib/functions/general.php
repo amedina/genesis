@@ -351,6 +351,19 @@ function genesis_html5() {
 }
 
 /**
+ * Determine if AMP is activated by the child theme.
+ *
+ * @since ?
+ *
+ * @return bool `true` if current theme supports `amp`, `false` otherwise.
+ */
+function genesis_amp() {
+
+	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+
+}
+
+/**
  * Determine if theme support genesis-accessibility is activated by the child theme.
  * Assumes the presence of a screen-reader-text class in the stylesheet (required generated class as from WordPress 4.2)
  *
