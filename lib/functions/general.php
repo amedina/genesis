@@ -351,7 +351,7 @@ function genesis_html5() {
 }
 
 /**
- * Determine if AMP is activated by the child theme.
+ * Determine if AMP is enabled by the theme and activate for the current request.
  *
  * @since ?
  *

@@ -104,12 +104,16 @@ class Genesis_Script_Loader {
 		// If superfish is enabled.
 		if ( genesis_superfish_enabled() ) {
 
-			wp_enqueue_script( 'superfish' );
-			wp_enqueue_script( 'superfish-args' );
+			if ( ! genesis_amp() ) {
+				wp_enqueue_script( 'superfish' );
+				wp_enqueue_script( 'superfish-args' );
 
-			// Load compatibility script if not running HTML5.
-			if ( ! genesis_html5() ) {
-				wp_enqueue_script( 'superfish-compat' );
+				// Load compatibility script if not running HTML5.
+				if ( ! genesis_html5() ) {
+					wp_enqueue_script( 'superfish-compat' );
+				}
+			} else {
+				// @todo AMP implementation of Superfish.
 			}
 		}
 
