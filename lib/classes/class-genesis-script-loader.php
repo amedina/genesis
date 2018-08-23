@@ -118,13 +118,15 @@ class Genesis_Script_Loader {
 		}
 
 		// If accessibility support enabled.
-		if ( genesis_a11y( 'skip-links' ) ) {
+		if ( genesis_a11y( 'skip-links' ) && ! genesis_amp() ) {
 			wp_enqueue_script( 'skip-links' );
 		}
 
 		// HTML5 shiv.
-		wp_enqueue_script( 'html5shiv' );
-		wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
+		if ( ! genesis_amp() ) {
+			wp_enqueue_script( 'html5shiv' );
+			wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
+		}
 
 		// AdSense
 		if ( genesis_get_option( 'adsense_id' ) ) {
